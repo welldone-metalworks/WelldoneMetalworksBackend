@@ -8,10 +8,12 @@ import connectDB from "./config/db.js";
 import authRoutes from "./routes/auth.routes.js";
 import enquiryRoutes from "./routes/contactRoute.js";
 
-// Connect DB
-connectDB();
-
 const app = express();
+
+// =============================
+// CONNECT DATABASE
+// =============================
+connectDB();
 
 // =============================
 // CORS CONFIG
@@ -19,17 +21,14 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "http://localhost:3000", // local frontend
-      "https://welldone-metalworks-frontend.vercel.app", // live frontend
+      "http://localhost:3000",
+      "https://welldone-metalworks-frontend.vercel.app",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
-
-// Handle Preflight requests
-app.options("*", cors());
 
 // =============================
 // MIDDLEWARE
