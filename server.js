@@ -38,7 +38,7 @@ app.use(
   })
 );
 
-app.options("*", cors());
+app.use(cors());
 
 // Middleware
 app.use(express.json());
